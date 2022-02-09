@@ -6,8 +6,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+<<<<<<< HEAD
     "start": "node src/index.js",
     "dev": "npx nodemon src/index.js"
+=======
+    "start": "node ./src/index.js",
+    "dev": "npx nodemon ./src/index.js"
+>>>>>>> 7d7cf1eb91e2c3b70e46de6ce5ef0d586287571e
   },
   "repository": {
     "type": "git",

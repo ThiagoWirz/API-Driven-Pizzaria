@@ -7,6 +7,6 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
-app.listen(process.env.MONGO_URI, () => {
-  console.log(`Rodando em: ${process.env.MONGO_URI}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Rodando em: ${process.env.PORT}`);
 });

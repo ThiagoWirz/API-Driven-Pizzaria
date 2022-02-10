@@ -25,16 +25,59 @@ app.post("/sales", async (req, res) => {
     res.sendStatus(500)
   }
 })
-
-app.delete("/sales", async (req, res) => {
+app.post("/drinks", async (req, res) => {
+  const drink = req.body
   try {
-    const sales = await db.collection("sales").findOneAndDelete({ name: 'Combo Familia' });
+    await db.collection("drinks").insertOne(drink);
+    res.sendStatus(201)
+
+  } catch (error) {
+    res.sendStatus(500)
+  }
+})
+app.get("/drinks", async (req, res) => {
+
+  try {
+    const sales = await db.collection("drinks").find({}).toArray();
     res.send(sales).status(200)
 
   } catch (error) {
     res.send(error).status(500)
   }
 })
+
+app.delete("/drinks", async (req, res) => {
+
+  try {
+    const sales = await db.collection("drinks").findOneAndDelete({ name: "Pizza De Calabresa" })
+    res.send(sales).status(200)
+
+  } catch (error) {
+    res.send(error).status(500)
+  }
+})
+
+app.post("/pizzas", async (req, res) => {
+  const pizza = req.body
+  try {
+    await db.collection("pizzas").insertOne(pizza);
+    res.sendStatus(201)
+
+  } catch (error) {
+    res.sendStatus(500)
+  }
+})
+app.get("/pizzas", async (req, res) => {
+
+  try {
+    const sales = await db.collection("pizzas").find({}).toArray();
+    res.send(sales).status(200)
+
+  } catch (error) {
+    res.send(error).status(500)
+  }
+})
+
 
 app.get("/sales", async (req, res) => {
 

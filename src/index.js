@@ -10,8 +10,4 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
-
-
-app.listen(process.env.PORT, () => {
-  console.log(`Rodando na porta ${process.env.PORT}`);
-});
+app.listen(process.env.PORT);

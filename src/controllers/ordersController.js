@@ -31,8 +31,11 @@ export async function getOrder(req, res) {
       .collection("orders")
       .find({ idUser: session.idUser })
       .toArray();
+    if (orders.length === 0) {
+      return res.send([]);
+    }
     res.send(orders[orders.length - 1].cart);
-  } catch {
+  } catch (error) {
     res.sendStatus(500);
   }
 }
